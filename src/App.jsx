@@ -114,25 +114,15 @@ import React, { useState } from 'react';
         e.preventDefault();
         setStatus('submitting');
 
-        try {
-          const response = await fetch('/api/rsvp', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              ...formData,
-              attending: formData.attending === 'yes',
-              guestsCount: parseInt(formData.guestsCount)
-            }),
+        // Simula envio - em produção, conecte a um serviço como Formspree, EmailJS ou Google Forms
+        setTimeout(() => {
+          console.log('RSVP enviado:', {
+            ...formData,
+            attending: formData.attending === 'yes',
+            guestsCount: parseInt(formData.guestsCount)
           });
-
-          if (response.ok) {
-            setTimeout(() => setStatus('success'), 800);
-          } else {
-            setStatus('error');
-          }
-        } catch (error) {
-          setStatus('error');
-        }
+          setStatus('success');
+        }, 1000);
       };
 
       if (status === 'success') {
