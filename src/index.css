@@ -1,0 +1,100 @@
+/* @tailwind base; <--- REMOVIDO */
+    @tailwind components;
+    @tailwind utilities;
+
+    /* Reset Manual */
+    *, ::before, ::after {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+      border-color: #e5e7eb;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: #FAFAF9; /* Stone-50 */
+      color: #292524; /* Stone-800 */
+      font-family: 'Lato', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .font-script {
+      font-family: 'Pinyon Script', cursive;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: 100%;
+      margin: 0;
+    }
+
+    /* Utilitários */
+    .container-custom {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Animações */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-up {
+      animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      opacity: 0; /* Começa invisível */
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-500 { animation-delay: 0.5s; }
+
+    /* Inputs Elegantes */
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .input-field {
+      width: 100%;
+      background: transparent;
+      border-bottom: 1px solid #a8a29e;
+      padding: 10px 0;
+      font-size: 1.1rem;
+      color: #292524;
+      transition: border-color 0.3s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #C5A059;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      font-size: 0.9rem;
+      color: #78716c;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .input-field:focus ~ .input-label,
+    .input-field:not(:placeholder-shown) ~ .input-label {
+      top: -12px;
+      font-size: 0.7rem;
+      color: #C5A059;
+    }
